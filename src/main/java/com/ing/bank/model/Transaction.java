@@ -1,6 +1,7 @@
 package com.ing.bank.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +16,39 @@ public class Transaction {
 	private Long transactionId;
 	private Long userId;
 	private String type;
-	private String amount;
+	private double amount;
 	private String accountNumber;
+	private double balance;
+	private String toAccountNumber;
+	private Date d= new Date();
+	
+	
+	
+	public Date getD() {
+		return d;
+	}
+	public void setD(Date d) {
+		this.d = d;
+	}
+	public String getToAccountNumber() {
+		return toAccountNumber;
+	}
+	public void setToAccountNumber(String toAccountNumber) {
+		this.toAccountNumber = toAccountNumber;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 	private LocalDate ldate;
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 	public Long getTransactionId() {
 		return transactionId;
 	}
@@ -36,12 +67,7 @@ public class Transaction {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getAmount() {
-		return amount;
-	}
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
+	
 	public String getAccountNumber() {
 		return accountNumber;
 	}
