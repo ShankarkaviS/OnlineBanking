@@ -25,20 +25,26 @@ public class TransactionServiceImpl implements TransactionService {
 	TransactionResponse response= new TransactionResponse();
 		Transaction t1= new Transaction();
 		Transaction t2= new Transaction();
-		t1.setAccountNumber(user.getAccountNumber());
+		t1.setFromAccount(user.getAccountNumber());
 		t1.setAmount(request.getAmount());
-	
 		t1.setType("Debit");
 		t1.setUserId(request.getUserId());
 		t1.setBalance(user.getBalance()-request.getAmount());
-		t1.setToAccountNumber(request.getToAccount());
+		t1.setToAccount(request.getToAccount());
+		
 		transactionRepository.save(t1);
+		user.setBalance(t1.getBalance());
+		
 		user2=userRepository.getUser(request.getToAccount());
-		t2.setAccountNumber(user2.getAccountNumber());
+		userRepository.save(user);
+		t2.setToAccount(request.getToAccount());
 		t2.setAmount(request.getAmount());
 		t2.setType("Cridit");
 		t2.setUserId(user2.getUserId());
 		t2.setBalance(request.getAmount()+user2.getBalance());
+		user2.setBalance(t2.getBalance());
+		userRepository.save(user2);
+		t2.setFromAccount(user.getAccountNumber());
 		transactionRepository.save(t2);
 		response.setAmount(request.getAmount());
 		response.setStatus("Transaction Success...");

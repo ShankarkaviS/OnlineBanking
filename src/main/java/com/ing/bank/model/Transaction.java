@@ -1,6 +1,5 @@
 package com.ing.bank.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,38 +16,10 @@ public class Transaction {
 	private Long userId;
 	private String type;
 	private double amount;
-	private String accountNumber;
+	private String fromAccount;
 	private double balance;
-	private String toAccountNumber;
-	private Date d= new Date();
-	
-	
-	
-	public Date getD() {
-		return d;
-	}
-	public void setD(Date d) {
-		this.d = d;
-	}
-	public String getToAccountNumber() {
-		return toAccountNumber;
-	}
-	public void setToAccountNumber(String toAccountNumber) {
-		this.toAccountNumber = toAccountNumber;
-	}
-	public double getBalance() {
-		return balance;
-	}
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-	private LocalDate ldate;
-	public double getAmount() {
-		return amount;
-	}
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+	private String toAccount;
+	private Date dates= new Date();
 	public Long getTransactionId() {
 		return transactionId;
 	}
@@ -67,17 +38,37 @@ public class Transaction {
 	public void setType(String type) {
 		this.type = type;
 	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public String getFromAccount() {
+		return fromAccount;
+	}
+	public void setFromAccount(String fromAccount) {
+		this.fromAccount = fromAccount;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public String getToAccount() {
+		return toAccount;
+	}
+	public void setToAccount(String toAccount) {
+		this.toAccount = toAccount;
+	}
+	public Date getDates() {
+		return dates;
+	}
+	public void setDates(Date dates) {
+		this.dates = dates;
+	}
 	
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	public LocalDate getLdate() {
-		return ldate;
-	}
-	public void setLdate(LocalDate ldate) {
-		this.ldate = ldate;
-	}
+	
+	
 }

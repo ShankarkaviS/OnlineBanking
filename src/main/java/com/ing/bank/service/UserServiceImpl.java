@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
 		account.setMobile(user.getPhoneNumber());
 		account.setPlace(user.getPlace());
 		account.setUserName(user.getUserName());
+		account.setBalance(user.getBalance());
 		UserResponse response= new UserResponse();
 		
 		account=userRepository.save(account);
